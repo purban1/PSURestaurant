@@ -4,6 +4,9 @@
  */
 package psurestaurant;
 
+import restaurant_types.FineDiningRestaurantType;
+import entertainment_type.PianoEntertainment;
+
 /**
  *
  * @author production

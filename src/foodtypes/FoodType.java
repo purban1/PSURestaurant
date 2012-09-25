@@ -1,4 +1,4 @@
-package psurestaurant;
+package foodtypes;
 
 /**
  *

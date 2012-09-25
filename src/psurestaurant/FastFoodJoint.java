@@ -4,6 +4,10 @@
  */
 package psurestaurant;
 
+import entertainment_type.NoEntertainment;
+import restaurant_types.FastFoodRestaurantType;
+import foodtypes.FoodType;
+
 /**
  *
  * @author production
@@ -18,7 +22,7 @@ public class FastFoodJoint extends Restaurant{
      * @param closing sets the closing hours
      * @param breakfast sets what is the main breakfast food
      * @param lunch sets what is the main meal for lunch
-     * @param dinner  sets what is the main meal for dinner
+     * @param dinner sets what is the main meal for dinner
      */    
     public FastFoodJoint(String name, String opening, String closing, FoodType breakfast, FoodType lunch, FoodType dinner){
         super.setName(name);

@@ -2,19 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package psurestaurant;
+package foodtypes;
 
 /**
  *
  * @author production
  */
-public class CheeseburgerFood implements FoodType {
+public class ChickenBreastSandwichFood implements FoodType {
 
     private static final String ERROR = "error - not a valid text entry";
     private String name;
-    private String description = "1/4 lb patti with your choice of cheese.";
+    private String description = "Breaded Chicken breast on a bund with lettuce, tomato and sauce.";
     private String availability = "Lunch and Dinner";
-    private Double price = 3.50;
+    private Double price = 7.25;
 
     public String getName() {
         return name;

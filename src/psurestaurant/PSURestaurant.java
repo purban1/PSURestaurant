@@ -1,6 +1,12 @@
 
 package psurestaurant;
 
+import foodtypes.DoubleCheeseburgerFood;
+import foodtypes.PorkFood;
+import foodtypes.ChickenBreastSandwichFood;
+import foodtypes.CheeseburgerFood;
+import foodtypes.BreakfastSandwichFood;
+
 /**
  *
  * @author Patrick Urban

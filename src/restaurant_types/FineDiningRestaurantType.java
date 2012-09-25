@@ -2,14 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package psurestaurant;
+package restaurant_types;
+
+import restaurant_types.RestaurantType;
 
 /**
  *
  * @author production
  */
-public class FamilyDiningRestaurantType implements RestaurantType{
-    private String type = "Family Dining";
+public class FineDiningRestaurantType implements RestaurantType{
+    private String type = "Fine Dining";
 
     public String getType() {
         return type;

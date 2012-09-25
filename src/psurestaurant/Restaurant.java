@@ -4,6 +4,8 @@
  */
 package psurestaurant;
 
+import foodtypes.FoodType;
+
 /**
  *
  * @author production
