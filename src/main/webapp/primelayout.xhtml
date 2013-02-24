@@ -4,38 +4,44 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    
+
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
 
-    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-        <ui:include src="header.xhtml" />
-    </p:layoutUnit>
+            <p:layoutUnit position="north" size="100" style="border: 0px" resizable="false" closable="false" collapsible="false">
+                <ui:include src="header.xhtml" />
+            </p:layoutUnit>
 
-    <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
-        <h:outputText value="South unit content." />
-    </p:layoutUnit>
+            <p:layoutUnit position="south" size="100" style="border: 0px; font-weight: bold; text-align: center" resizable="false" closable="false" collapsible="false">
+                <ui:include src="footer.xhtml" />
+            </p:layoutUnit>
 
-    <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
-        <p:calendar class="" value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>
-    </p:layoutUnit>
+            <p:layoutUnit position="west" size="318" header="Left" style="border: 0px" resizable="false" closable="false" collapsible="true">
+                <p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>
+            </p:layoutUnit>
 
-    <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
-        <h:outputText value="Right unit content." />
-    </p:layoutUnit>
+            <!--
+            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+                <h:outputText value="Right unit content." />
+            </p:layoutUnit>
+            -->
 
-    <p:layoutUnit position="center">
-        <h:form>
-            This fullPage layout consists of five different layoutUnits which are resizable and closable by default.
+            <p:layoutUnit position="center" style="border: 0px">
+                <p:layout>
+                    <p:layoutUnit position="west" size="30" style="border: 0px" />
+                    <p:layoutUnit position="center" style="border: 0px">
+                        <h:form>
+                            This area would be for active Auctions or could be for Auctions ending soon.
+                        </h:form>
+                    </p:layoutUnit>
+                </p:layout>
+            </p:layoutUnit>
 
-        </h:form>
-    </p:layoutUnit>
+        </p:layout>
 
-</p:layout>
-                        
     </h:body>
 </html>
 
