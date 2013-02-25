@@ -17,7 +17,7 @@
 
                     <p:selectOneMenu id="menuChoice" style="width: 150px; font-size: 10pt;
                                      vertical-align: top" value="#{search.menuChoice}">
-                        <f:selectItem itemLabel="Category" itemValue=" " />
+                        <f:selectItem itemLabel="All categories" itemValue="All" />
                         <f:selectItem itemLabel="Dining" itemValue="Dining" />
                         <f:selectItem itemLabel="Electronics" itemValue="Electronics" />
                         <f:selectItem itemLabel="Retail" itemValue="Retail" />
@@ -26,10 +26,10 @@
                     <!-- If we wanted a text search in a category, text box
                          below. WARNING: Alignment problems.
                     -->
-                    <p:inputText id="searchText" style="width: 400px; font-size: 12pt; vertical-align: top"
+                    <p:inputText id="searchText" style="width: 350px; font-size: 12pt; vertical-align: top"
                                  value="#{search.searchPhrase}"/>
                     <h:commandButton style="vertical-align: top" value="Search"
-                                     action="#{search.returnDestinationPage()}">
+                                     action="results">
                         <!--<f:ajax execute="menuChoice" render="selectionMade"></f:ajax>-->
                     </h:commandButton>
 

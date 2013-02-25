@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Auction Page</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./primetemplate.xhtml">
+
+            <ui:define name="content">
+                <!--
+                <p>This area would be for active Dining Auctions or could be for 
+                    Dining Auctions ending soon.</p>
+                -->
+
+                <h:outputText id="searchText" style="font-weight: bold; 
+                              font-size: 14pt" value="#{search.returnAuctionCategory()} AUCTIONS"  />
+                <br />
+                <p:dataTable id="auctionItems" style="font-size: 10pt" 
+                             var="bidItems" value="#{search.returnItemsForPage()}">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Auction Number" />
+                        </f:facet>
+                        <h:outputText style="text-align: center" value="#{bidItems.id}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Item" />
+                        </f:facet>
+                        <h:outputText value="#{bidItems.item}" />
+                    </p:column>
+                    <p:column width="350">
+                        <f:facet name="header">
+                            <h:outputText value="Description" />
+                        </f:facet>
+                        <h:outputText value="#{bidItems.description}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Price" />
+                        </f:facet>
+                        <h:outputText value="#{bidItems.bidPrice}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="End Date" />
+                        </f:facet>
+                        <h:outputText style="text-align: right" value="#{bidItems.auctionEndDate}" />
+                    </p:column>
+                    
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
