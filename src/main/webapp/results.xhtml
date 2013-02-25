@@ -21,8 +21,11 @@
                 <h:outputText id="searchText" style="font-weight: bold; 
                               font-size: 14pt" value="#{search.returnAuctionCategory()} AUCTIONS"  />
                 <br />
-                <p:dataTable paginator="true" id="auctionItems" style="font-size: 10pt; width:95%!important" 
+                <p:dataTable id="auctionItems" style="font-size: 10pt; width:95%!important" 
                              var="bidItems" value="#{search.returnItemsForPage()}">
+                    <f:facet name="header">
+                        Ajax Pagination
+                    </f:facet>
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Auction Number" />
@@ -53,7 +56,7 @@
                         </f:facet>
                         <h:outputText style="text-align: right" value="#{bidItems.auctionEndDate}" />
                     </p:column>
-                    
+
                 </p:dataTable>
             </ui:define>
         </ui:composition>
