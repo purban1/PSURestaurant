@@ -11,7 +11,10 @@
         <ui:composition template="./primetemplate.xhtml">
 
             <ui:define name="content">
-                This area would be for active Auctions or could be for Auctions ending soon.
+                <p>This area would be for active Dining Auctions or could be for 
+                Dining Auctions ending soon.</p>
+                
+                <h:outputText id="searchText" value="#{search.returnSearchTextResults()}" />
             </ui:define>
             
 

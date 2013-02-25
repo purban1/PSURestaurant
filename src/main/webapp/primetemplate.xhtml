@@ -6,21 +6,21 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <h:head>
-        <title>Facelet Title</title>
+        <title>Auction Site Template</title>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
 
-            <p:layoutUnit position="north" size="100" style="border: 0px" resizable="false" closable="false" collapsible="false">
+            <p:layoutUnit position="north" size="130" style="border: 0px" resizable="false" closable="false" collapsible="false">
                 <ui:include src="header.xhtml" />
             </p:layoutUnit>
 
-            <p:layoutUnit position="south" size="100" style="border: 0px; font-weight: bold; text-align: center" resizable="false" closable="false" collapsible="false">
+            <p:layoutUnit position="south" size="100" style="border: 0px; font-size: 12pt; font-weight: bold; text-align: center" resizable="false" closable="false" collapsible="false">
                 <ui:include src="footer.xhtml" />
             </p:layoutUnit>
 
-            <p:layoutUnit position="west" size="318" header="Left" style="border: 0px" resizable="false" closable="false" collapsible="true">
-                <p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>
+            <p:layoutUnit position="west" size="318" header="Left" style="border: 0px" resizable="false" closable="false" collapsible="true" >
+                <ui:include src="leftnav.xhtml" />
             </p:layoutUnit>
 
             <!--
@@ -28,17 +28,26 @@
                 <h:outputText value="Right unit content." />
             </p:layoutUnit>
             -->
-
+            
+            <!--
+            <p:layoutUnit position="center" style="border: 0px">
+                <ui:insert name="content">
+                    Content
+                </ui:insert>
+            </p:layoutUnit>
+            -->
+            
             <p:layoutUnit position="center" style="border: 0px">
                 <p:layout>
                     <p:layoutUnit position="west" size="30" style="border: 0px" />
                     <p:layoutUnit position="center" style="border: 0px">
-                        <h:form>
-                            This area would be for active Auctions or could be for Auctions ending soon.
-                        </h:form>
+                        <ui:insert name="content">
+                            Page Content to be inserted here.
+                        </ui:insert>
                     </p:layoutUnit>
                 </p:layout>
             </p:layoutUnit>
+            
 
         </p:layout>
 
