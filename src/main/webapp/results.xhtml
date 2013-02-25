@@ -21,7 +21,7 @@
                 <h:outputText id="searchText" style="font-weight: bold; 
                               font-size: 14pt" value="#{search.returnAuctionCategory()} AUCTIONS"  />
                 <br />
-                <p:dataTable id="auctionItems" style="font-size: 10pt; width:95%!important" 
+                <p:dataTable paginator="true" rows="7" id="auctionItems" style="font-size: 10pt; width:95%!important" 
                              var="bidItems" value="#{search.returnItemsForPage()}">
                     <f:facet name="header">
                         Ajax Pagination

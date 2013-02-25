@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author Patrick Urban
  */
 @ManagedBean(name = "search")
-@RequestScoped
+@SessionScoped
 public class SearchOptionsBean {
 
     private String menuChoice = " ";
