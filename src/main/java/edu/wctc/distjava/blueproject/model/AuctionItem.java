@@ -108,5 +108,40 @@ public class AuctionItem {
     public final void setItem(String item) {
         this.item = item;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 97 * hash + (this.category != null ? this.category.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AuctionItem other = (AuctionItem) obj;
+        if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
+            return false;
+        }
+        if ((this.category == null) ? (other.category != null) : !this.category.equals(other.category)) {
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public String toString() {
+        return "AuctionItem{" + "id=" + id + ", category=" + category + 
+                ", item=" + item + ", description=" + description + ", bidPrice=" +
+                bidPrice + ", auctionEndDate=" + auctionEndDate + '}';
+    }
+    
+    
     
 }

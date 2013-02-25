@@ -17,7 +17,7 @@ import javax.faces.bean.SessionScoped;
 public class SearchOptionsBean {
 
     private String menuChoice = " ";
-    public String searchPhrase = " ";
+    private String searchPhrase = " ";
 
     /**
      * Creates a new instance of SearchOptionsBean
@@ -25,7 +25,7 @@ public class SearchOptionsBean {
     public SearchOptionsBean() {
     }
 
-    public List<AuctionItem> returnItemsForPage() {
+    public final List<AuctionItem> returnItemsForPage() {
         BidItems items = new BidItems();
         List<AuctionItem> list = items.createAuctionList();
         List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
@@ -44,21 +44,21 @@ public class SearchOptionsBean {
         return listMatch;
     }
 
-    public String returnAuctionCategory() {
+    public final String returnAuctionCategory() {
         return menuChoice.toUpperCase();
     }
 
     /**
      * @return the menuChoice
      */
-    public String getMenuChoice() {
+    public final String getMenuChoice() {
         return menuChoice;
     }
 
     /**
      * @param menuchoice the menuChoice to set
      */
-    public void setMenuChoice(String menuChoice) {
+    public final void setMenuChoice(String menuChoice) {
         if (!(menuChoice.equals(" "))) {
 //            this.menuChoice = "You made the choice of " + menuChoice;
             this.menuChoice = menuChoice.toLowerCase();
@@ -68,15 +68,18 @@ public class SearchOptionsBean {
     /**
      * @return the searchPhrase
      */
-    public String getSearchPhrase() {
+    public final String getSearchPhrase() {
         return searchPhrase;
     }
 
     /**
      * @param searchPhrase the searchPhrase to set
      */
-    public void setSearchPhrase(String searchPhrase) {
+    public final void setSearchPhrase(String searchPhrase) {
         this.searchPhrase = searchPhrase;
         System.out.println(searchPhrase.toLowerCase());
     }
+    
+    
+    
 }

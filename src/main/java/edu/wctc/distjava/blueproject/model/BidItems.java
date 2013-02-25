@@ -18,7 +18,7 @@ public class BidItems {
         
     }
     
-    public List<AuctionItem> createAuctionList(){
+    public final List<AuctionItem> createAuctionList(){
         List<AuctionItem> items = new ArrayList<AuctionItem>();
         
         items.add(new AuctionItem("1", "Electronics", "Blu-Ray Player", 
