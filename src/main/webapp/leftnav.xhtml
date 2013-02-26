@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
@@ -10,6 +12,44 @@
 
                 <!--<p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>-->
 
+            <p:accordionPanel style="font-size: 10pt">
+                <p:tab title="Auction Items">
+                    <h:form>
+                        <p:selectOneRadio id="auctionTypes" 
+                                          value="#{search.auctionChoice}" 
+                                          layout="pageDirection">
+                            <f:selectItem itemLabel="All Auctions" itemValue="All" />
+                            <f:selectItem itemLabel="Dining" itemValue="Dining" />
+                            <f:selectItem itemLabel="Electronics" itemValue="Electronics" />
+                            <f:selectItem itemLabel="Retail" itemValue="Retail" />
+                        </p:selectOneRadio>
+                        <h:commandButton value="Display Items" action="results">
+                        </h:commandButton>
+                    </h:form>
+                </p:tab>
+
+                <p:tab title="Donate" >
+                    <h:outputText value="If you would prefer to make a donation to the 
+                                  club instead of participating in an auction, please click 
+                                  here." />
+                </p:tab>
+                <p:tab title="About us">
+                    <h:outputText value="The BIT Connections Club promotes WCTC students 
+                                  who are motivated to share and expand upon their information 
+                                  technology skills in a setting of which they can get involved 
+                                  and apply the skills from the classroom into the real world. 
+                                  The BIT Club members actively participate in service learning 
+                                  projects, emerging technology exploration, aspects of global 
+                                  business technology and professional development opportunities. 
+                                  This innovative club is part of the Business Information Technology 
+                                  department and welcomes any WCTC student interested in gaining 
+                                  additional knowledge, valuable real world experience and experience 
+                                  in the ever-changing world of information technology. The BIT 
+                                  Connections Club meets twice a month in the L Building and 
+                                  our meeting times are announced via Blackboard and WCTC 
+                                  Portal announcements. Please contact us to find out more!" />
+                </p:tab>
+            </p:accordionPanel>
         </ui:composition>
 
     </body>

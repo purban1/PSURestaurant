@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
     <h:head>
         <title>Auction Page</title>
@@ -12,19 +13,22 @@
     <h:body>
         <ui:composition template="./primetemplate.xhtml">
 
+            <ui:define name="title">Search Results</ui:define>
+            
             <ui:define name="content">
                 <!--
                 <p>This area would be for active Dining Auctions or could be for 
                     Dining Auctions ending soon.</p>
                 -->
 
-                <h:outputText id="searchText" style="font-weight: bold; 
+                <h:outputText id="searchTitle" style="font-weight: bold; 
                               font-size: 14pt" value="#{search.returnAuctionCategory()} AUCTIONS"  />
                 <br />
-                <p:dataTable paginator="true" rows="7" id="auctionItems" style="font-size: 10pt; width:95%!important" 
+                <p:dataTable paginator="true" rows="7" id="auctionItems" paginatorPosition="bottom" 
+                             style="font-size: 10pt; width:95%!important" 
                              var="bidItems" value="#{search.returnItemsForPage()}">
                     <f:facet name="header">
-                        Ajax Pagination
+                        Current Auctions
                     </f:facet>
                     <p:column>
                         <f:facet name="header">
@@ -56,6 +60,9 @@
                         </f:facet>
                         <h:outputText style="text-align: right" value="#{bidItems.auctionEndDate}" />
                     </p:column>
+                    <f:facet name="footer">
+                        In total there are #{fn:length(search.returnItemsForPage())} auction items.
+                    </f:facet>
 
                 </p:dataTable>
             </ui:define>

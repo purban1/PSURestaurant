@@ -5,48 +5,36 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
+   
+        <body>
 
-    <body>
+            <ui:composition >
 
-        <ui:composition >
-            
-            <p:panelGrid columns="3">
-            
-                <h3 style="width: 318px">Our Fantastic yet to<br />be created logo here</h3>
-                <h:form style="width: 702px">
+                <p:panelGrid columns="3">
 
-                    <p:selectOneMenu id="menuChoice" style="width: 150px; font-size: 10pt;
-                                     vertical-align: top" value="#{search.menuChoice}">
-                        <f:selectItem itemLabel="All categories" itemValue="All" />
-                        <f:selectItem itemLabel="Dining" itemValue="Dining" />
-                        <f:selectItem itemLabel="Electronics" itemValue="Electronics" />
-                        <f:selectItem itemLabel="Retail" itemValue="Retail" />
-                    </p:selectOneMenu>
+                    <h3 style="width: 318px">Our Fantastic yet to<br />be created logo here</h3>
 
-                    <!-- If we wanted a text search in a category, text box
-                         below. WARNING: Alignment problems.
-                    -->
-                    <p:inputText id="searchText" style="width: 350px; font-size: 12pt; vertical-align: top"
-                                 value="#{search.searchPhrase}"/>
-                    <h:commandButton style="vertical-align: top" value="Search"
-                                     action="results">
-                        <!--<f:ajax execute="menuChoice" render="selectionMade"></f:ajax>-->
-                    </h:commandButton>
+                    <h:form style="width: 702px">
 
-                    <!--
-                    <p><h:outputFormat id="selectionMade" value="#{search.menuChoice}" /></p>
-                    -->
-
-                </h:form>
-
-                <h:outputText style="font-size: 12pt" value="Welcome: Guest" />
-                
-            
-            </p:panelGrid>
-            
+                        <p:inputText id="searchText" style="width: 350px; 
+                                     font-size: 12pt; 
+                                     vertical-align: top"
+                                     value="#{search.searchPhrase}"/>
+                        <h:commandButton style="vertical-align: top" value="Search"
+                                         action="results">
+                        </h:commandButton>
 
 
-        </ui:composition>
+                    </h:form>
 
-    </body>
+                    <h:outputText style="font-size: 12pt" value="Welcome: Guest" />
+
+
+                </p:panelGrid>
+
+
+
+            </ui:composition>
+
+        </body>
 </html>

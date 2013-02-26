@@ -5,41 +5,54 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
+
     <h:head>
-        <title>Auction Site Template</title>
+        <h:outputStylesheet name="default.css" library="css" />
+        <h:outputStylesheet name="cssLayout.css" library="css" />
+        <h:outputStylesheet name="auction.css" library="css" />
+        <title><ui:insert name="title">Auction Site Template</ui:insert></title>
+
     </h:head>
     <h:body>
         <p:layout fullPage="true">
 
-            <p:layoutUnit position="north" size="130" style="border: 0px" resizable="false" closable="false" collapsible="false">
+            <p:layoutUnit position="north" size="130" style="border: 0px" 
+                          resizable="false" closable="false" collapsible="false">
                 <ui:include src="header.xhtml" />
             </p:layoutUnit>
 
-            <p:layoutUnit position="south" size="80" style="border: 0px; font-size: 10pt; font-weight: bold; text-align: center" resizable="false" closable="false" collapsible="false">
+            <p:layoutUnit position="south" size="80" style="border: 0px; 
+                          font-size: 10pt; font-weight: bold; text-align: center" 
+                          resizable="false" closable="false" collapsible="false">
                 <ui:include src="footer.xhtml" />
             </p:layoutUnit>
 
-            <p:layoutUnit position="west" size="318" header="Left" style="border: 0px" resizable="false" closable="false" collapsible="true" >
+            <p:layoutUnit position="west" size="318" header="Site Navigation" style="border: 0px" 
+                          resizable="false" closable="false" collapsible="true" >
                 <ui:include src="leftnav.xhtml" />
             </p:layoutUnit>
 
-            <!--
-            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
-                <h:outputText value="Right unit content." />
-            </p:layoutUnit>
-            -->
-            
-            <!--
+            <!-- Original 'center' in template layout
             <p:layoutUnit position="center" style="border: 0px">
                 <ui:insert name="content">
                     Content
                 </ui:insert>
             </p:layoutUnit>
             -->
-            
+
+            <!-- The 'Center' area is divided up into two sections - a 'West' 
+                 and a new 'Center' area
+            -->
             <p:layoutUnit position="center" style="border: 0px">
                 <p:layout>
+                    <!-- This is a spacer between the 'West' part of the layout 
+                         and the 'Center' area
+                    -->
                     <p:layoutUnit position="west" size="30" style="border: 0px" />
+
+                    <!-- 
+                         New 'Center' area
+                    -->
                     <p:layoutUnit position="center" style="border: 0px">
                         <ui:insert name="content">
                             Page Content to be inserted here.
@@ -47,7 +60,7 @@
                     </p:layoutUnit>
                 </p:layout>
             </p:layoutUnit>
-            
+
 
         </p:layout>
 

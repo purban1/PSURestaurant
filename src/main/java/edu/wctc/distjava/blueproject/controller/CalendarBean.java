@@ -1,10 +1,11 @@
 package edu.wctc.distjava.blueproject.controller;
 
+import java.io.Serializable;
 import java.util.Date;
 
 //import org.primefaces.event.SelectEvent;
 
-public class CalendarBean {
+public class CalendarBean  implements Serializable{
 
 	private Date date1;
 	

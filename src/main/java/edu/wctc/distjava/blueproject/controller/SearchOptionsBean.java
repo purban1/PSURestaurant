@@ -2,8 +2,8 @@ package edu.wctc.distjava.blueproject.controller;
 
 import edu.wctc.distjava.blueproject.model.AuctionItem;
 import edu.wctc.distjava.blueproject.model.BidItems;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,9 +14,9 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "search")
 @SessionScoped
-public class SearchOptionsBean {
+public class SearchOptionsBean implements Serializable {
 
-    private String menuChoice = " ";
+    private String auctionChoice = " ";
     private String searchPhrase = " ";
 
     /**
@@ -30,13 +30,13 @@ public class SearchOptionsBean {
         List<AuctionItem> list = items.createAuctionList();
         List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
 
-        if (menuChoice.equals("all")) {
+        if (auctionChoice.equals("all")) {
             for (AuctionItem b : list) {
                 listMatch.add(b);
             }
         } else {
             for (AuctionItem b : list) {
-                if (b.getCategory().toLowerCase().equals(this.getMenuChoice())) {
+                if (b.getCategory().toLowerCase().equals(this.getAuctionChoice())) {
                     listMatch.add(b);
                 }
             }
@@ -45,23 +45,23 @@ public class SearchOptionsBean {
     }
 
     public final String returnAuctionCategory() {
-        return menuChoice.toUpperCase();
+        return auctionChoice.toUpperCase();
     }
 
     /**
-     * @return the menuChoice
+     * @return the auctionChoice
      */
-    public final String getMenuChoice() {
-        return menuChoice;
+    public final String getAuctionChoice() {
+        return auctionChoice;
     }
 
     /**
-     * @param menuchoice the menuChoice to set
+     * @param auctionChoice the auctionChoice to set
      */
-    public final void setMenuChoice(String menuChoice) {
-        if (!(menuChoice.equals(" "))) {
-//            this.menuChoice = "You made the choice of " + menuChoice;
-            this.menuChoice = menuChoice.toLowerCase();
+    public final void setAuctionChoice(String auctionChoice) {
+        if (!(auctionChoice.equals(" "))) {
+            this.auctionChoice = auctionChoice.toLowerCase();
+            System.out.println(auctionChoice);
         }
     }
 
