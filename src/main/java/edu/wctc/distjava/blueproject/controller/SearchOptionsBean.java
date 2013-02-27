@@ -16,8 +16,9 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class SearchOptionsBean implements Serializable {
 
-    private String auctionChoice = " ";
+    private String auctionChoice;
     private String searchPhrase = " ";
+    private final String DEFAULT_RADIO = "all";
 
     /**
      * Creates a new instance of SearchOptionsBean
@@ -30,7 +31,7 @@ public class SearchOptionsBean implements Serializable {
         List<AuctionItem> list = items.createAuctionList();
         List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
 
-        if (auctionChoice.equals("all")) {
+        if (auctionChoice.equals(DEFAULT_RADIO) || auctionChoice == null) {
             for (AuctionItem b : list) {
                 listMatch.add(b);
             }
@@ -59,9 +60,10 @@ public class SearchOptionsBean implements Serializable {
      * @param auctionChoice the auctionChoice to set
      */
     public final void setAuctionChoice(String auctionChoice) {
-        if (!(auctionChoice.equals(" "))) {
+        if (!(auctionChoice == null)) {
             this.auctionChoice = auctionChoice.toLowerCase();
-            System.out.println(auctionChoice);
+        } else {
+            this.auctionChoice = DEFAULT_RADIO;
         }
     }
 

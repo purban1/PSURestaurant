@@ -7,3 +7,7 @@ root {
     font-size: 10pt;
 }
 
+.panelGridBorder td, .panelGridBorder tr, .panelGridBorder col{
+    border-style: hidden !important;
+}
+
