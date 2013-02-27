@@ -74,6 +74,11 @@ public class AuctionItem {
         this.category = category;
     }
 
+    
+    public float displayPriceInDataTable(){
+        return Float.parseFloat(this.getBidPrice());
+    }
+    
     /**
      * @param description the description to set
      */

@@ -11,7 +11,8 @@
         <ui:composition >
 
                 <!--<p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>-->
-
+            
+            
             <p:accordionPanel activeIndex="" style="font-size: 10pt">
                 <p:tab title="Auction Items" >
                     <h:form>
@@ -39,6 +40,9 @@
                 </p:tab>
                 <p:tab title="About us">
                     <h:outputText value="#{club.ABOUT}" />
+                </p:tab>
+                <p:tab title="Upcoming Club Events">
+                    <h:outputText value="Link to a datatable listing upcoming events." />
                 </p:tab>
             </p:accordionPanel>
         </ui:composition>

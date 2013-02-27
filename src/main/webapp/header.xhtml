@@ -8,19 +8,18 @@
    
         <body>
 
-            <ui:composition >
+            <ui:composition  >
 
                 <h:outputStylesheet name="auction.css" library="css" />
                 
                 <p:panelGrid columns="3" styleClass="panelGridBorder">
 
-                    <h3 style="width: 318px">Our Fantastic yet to<br />be created logo here</h3>
+                    <h:graphicImage library="images" name="logo.jpg" /> 
 
-                    <h:form style="width: 702px">
+                    <h:form style="width: 500px">
 
                         <p:inputText id="searchText" style="width: 350px; 
-                                     font-size: 12pt; 
-                                     vertical-align: top"
+                                     font-size: 12pt; vertical-align: top"
                                      value="#{search.searchPhrase}"/>
                         <h:commandButton style="vertical-align: top" value="Search"
                                          action="results">

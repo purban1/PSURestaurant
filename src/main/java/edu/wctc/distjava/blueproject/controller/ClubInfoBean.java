@@ -12,10 +12,10 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class ClubInfoBean implements Serializable{
     
-    public String DONATE = "If you would prefer to make a donation to the " +
+    private String DONATE = "If you would prefer to make a donation to the " +
             "club instead of participating in an auction, please click the "
             + "donate button below.";
-    public String ABOUT = "The BIT Connections Club promotes WCTC students " +
+    private String ABOUT = "The BIT Connections Club promotes WCTC students " +
             "who are motivated to share and expand upon their information " +
             "technology skills in a setting of which they can get involved " +
             "and apply the skills from the classroom into the real world. " +
@@ -30,6 +30,13 @@ public class ClubInfoBean implements Serializable{
             "our meeting times are announced via Blackboard and WCTC " +
             "Portal announcements. Please contact us to find out more!";
     
+    private String auctionSite = "bitAuction";
+    private String clubPurpose= "'s mission is to help fund the <b>Bit Connections "
+            + "Club</b> at <a href= \"http://www.wctc.edu\" target=_blank>Waukesha County Techinical College</a>. "
+            + "The funds that you help raise, enable the club to provide real world benefits from "
+            + "lecturers, lab equipment and international educational trips.";
+
+    
     /**
      * Creates a new instance of ClubInfo
      */
@@ -39,29 +46,57 @@ public class ClubInfoBean implements Serializable{
     /**
      * @return the DONATE
      */
-    public String getDONATE() {
+    public final String getDONATE() {
         return DONATE;
     }
 
     /**
      * @return the ABOUT
      */
-    public String getABOUT() {
+    public final String getABOUT() {
         return ABOUT;
     }
 
     /**
      * @param DONATE the DONATE to set
      */
-    public void setDONATE(String DONATE) {
+    public final void setDONATE(String DONATE) {
         this.DONATE = DONATE;
     }
 
     /**
      * @param ABOUT the ABOUT to set
      */
-    public void setABOUT(String ABOUT) {
+    public final void setABOUT(String ABOUT) {
         this.ABOUT = ABOUT;
+    }
+
+    /**
+     * @return the CLUB_NAME
+     */
+    public String getAuctionSite() {
+        return auctionSite;
+    }
+
+    /**
+     * @param CLUB_NAME the CLUB_NAME to set
+     */
+    public void setAuctionSite(String auctionSite) {
+        this.auctionSite = auctionSite;
+    }
+
+    /**
+     * @return the clubPurpose
+     */
+    public String getClubPurpose() {
+        return clubPurpose;
+    }
+
+    /**
+     * @param clubPurpose the CAMPUS_LOCATION to set
+     */
+    public void setClubPurpose(String clubPurpose) {
+        this.clubPurpose = clubPurpose;
     }
     
     

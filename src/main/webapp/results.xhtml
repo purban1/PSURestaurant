@@ -51,8 +51,10 @@
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Price" />
-                        </f:facet>
-                        <h:outputText value="#{bidItems.bidPrice}" />
+                        </f:facet> 
+                        <h:outputText value="#{bidItems.displayPriceInDataTable()}" >
+                            <f:convertNumber currencySymbol="$" type="currency" />
+                        </h:outputText>
                     </p:column>
                     <p:column>
                         <f:facet name="header">
