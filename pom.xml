@@ -40,7 +40,6 @@
         <slf4j.version>1.6.6</slf4j.version>
         <jodatime.version>2.1</jodatime.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
