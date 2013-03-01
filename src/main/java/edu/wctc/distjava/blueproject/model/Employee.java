@@ -143,10 +143,18 @@ public class Employee implements Serializable {
         }
         return true;
     }
+    
+    
+//    @Override
+//    public String toString() {
+//        return "model.Employee[ id=" + id + " ]";
+//    }
 
     @Override
     public String toString() {
-        return "model.Employee[ id=" + id + " ]";
+        return "Employee{" + "id=" + id + ", lastname=" + lastname + ", firstname=" 
+                + firstname + ", email=" + email + ", hiredate=" + hiredate + ", version=" 
+                + version + ", deptId=" + deptId + '}';
     }
     
 }

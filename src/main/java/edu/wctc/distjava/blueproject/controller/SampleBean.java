@@ -36,8 +36,8 @@ public class SampleBean implements Serializable {
         this.message = message;
     }
     
-    public String getEmployeeById(String id){
-        Employee employee = eao.getEmployeeByID(new Integer(id));
+    public String getEmployeeById(){
+        Employee employee = eao.getEmployeeByID(new Integer("1"));
         return employee.toString();
     }
     
