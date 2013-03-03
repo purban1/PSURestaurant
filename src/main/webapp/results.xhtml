@@ -22,11 +22,11 @@
                 -->
 
                 <h:outputText id="searchTitle" style="font-weight: bold; 
-                              font-size: 14pt" value="#{search.returnAuctionCategory()} AUCTIONS"  />
+                              font-size: 14pt" value="All AUCTIONS"  />
                 <br />
                 <p:dataTable paginator="true" rows="7" id="auctionItems" paginatorPosition="bottom" 
                              style="font-size: 10pt; width:95%!important" 
-                             var="bidItems" value="#{search.returnItemsForPage()}">
+                             var="auctionItems" value="#{search.returnAllAuctionItems()}">
                     <f:facet name="header">
                         Current Auctions
                     </f:facet>
@@ -34,25 +34,27 @@
                         <f:facet name="header">
                             <h:outputText value="Auction Number" />
                         </f:facet>
-                        <h:outputText style="text-align: center" value="#{bidItems.id}" />
+                        <h:outputText style="text-align: center" value="#{auctionItems.auctionId}" />
                     </p:column>
+                    <!-- 
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Item" />
                         </f:facet>
-                        <h:outputText value="#{bidItems.item}" />
+                        <h:outputText value="#{auctionItems.itemId.description}" />
                     </p:column>
+                    -->
                     <p:column width="350">
                         <f:facet name="header">
                             <h:outputText value="Description" />
                         </f:facet>
-                        <h:outputText value="#{bidItems.description}" />
+                        <h:outputText value="#{auctionItems.itemId.description}" />
                     </p:column>
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Price" />
                         </f:facet> 
-                        <h:outputText value="#{bidItems.displayPriceInDataTable()}" >
+                        <h:outputText value="#{auctionItems.itemId.currentBid}" >
                             <f:convertNumber currencySymbol="$" type="currency" />
                         </h:outputText>
                     </p:column>
@@ -60,7 +62,7 @@
                         <f:facet name="header">
                             <h:outputText value="End Date" />
                         </f:facet>
-                        <h:outputText style="text-align: right" value="#{bidItems.auctionEndDate}" />
+                        <h:outputText style="text-align: right" value="#{auctionItems.auctionEndDate}" />
                     </p:column>
                     <f:facet name="footer">
                         In total there are #{fn:length(search.returnItemsForPage())} auction items.

@@ -1,14 +1,14 @@
 package edu.wctc.distjava.blueproject.controller;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Patrick Urban
  */
-@ManagedBean(name="club")
+@Named(value="club")
 @RequestScoped
 public class ClubInfoBean implements Serializable{
     
@@ -32,8 +32,8 @@ public class ClubInfoBean implements Serializable{
     
     private String auctionSite = "bitAuction";
     private String clubPurpose= "'s mission is to help fund the <b>Bit Connections "
-            + "Club</b> at <a href= \"http://www.wctc.edu\" target=_blank>Waukesha County Techinical College</a>. "
-            + "The funds that you help raise, enable the club to provide real world benefits from "
+            + "Club</b> at <a href= \"http://www.wctc.edu\" target=_blank>Waukesha County Technical College</a>. "
+            + "The funds that you help raise, enable the club to provide real world benefits including "
             + "lecturers, lab equipment and international educational trips.";
 
     

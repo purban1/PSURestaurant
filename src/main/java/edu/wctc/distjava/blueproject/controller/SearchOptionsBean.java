@@ -1,18 +1,20 @@
 package edu.wctc.distjava.blueproject.controller;
 
-import edu.wctc.distjava.blueproject.model.AuctionItem;
-import edu.wctc.distjava.blueproject.model.BidItems;
+//import edu.wctc.distjava.blueproject.model.AuctionItem;
+import edu.wctc.distjava.blueproject.model.Auctions;
+import edu.wctc.distjava.blueproject.model.AuctionsEAO;
+//import edu.wctc.distjava.blueproject.model.BidItems;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Patrick Urban
  */
-@ManagedBean(name = "search")
+@Named(value = "search")
 @SessionScoped
 public class SearchOptionsBean implements Serializable {
 
@@ -26,29 +28,29 @@ public class SearchOptionsBean implements Serializable {
     public SearchOptionsBean() {
     }
 
-    public final List<AuctionItem> returnItemsForPage() {
-        BidItems items = new BidItems();
-        List<AuctionItem> list = items.createAuctionList();
-        List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
-
-        if (auctionChoice.equals(DEFAULT_RADIO) || auctionChoice == null) {
-            for (AuctionItem b : list) {
-                listMatch.add(b);
-            }
-        } else {
-            for (AuctionItem b : list) {
-                if (b.getCategory().toLowerCase().equals(this.getAuctionChoice())) {
-                    listMatch.add(b);
-                }
-            }
-        }
-        return listMatch;
+    public final List<Auctions> returnAllAuctionItems() {
+        AuctionsEAO eao = new AuctionsEAO();
+        List<Auctions> auctions = eao.getAllAuctions();
+//        List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
+//
+//        if (auctionChoice.equals(DEFAULT_RADIO) || auctionChoice == null) {
+//            for (AuctionItem b : list) {
+//                listMatch.add(b);
+//            }
+//        } else {
+//            for (AuctionItem b : list) {
+//                if (b.getCategory().toLowerCase().equals(this.getAuctionChoice())) {
+//                    listMatch.add(b);
+//                }
+//            }
+//        }
+        return auctions;
     }
 
-    public final String returnAuctionCategory() {
-        return auctionChoice.toUpperCase();
-    }
-
+//    public final String returnAuctionCategory() {
+//        return auctionChoice.toUpperCase();
+//    }
+//
     /**
      * @return the auctionChoice
      */

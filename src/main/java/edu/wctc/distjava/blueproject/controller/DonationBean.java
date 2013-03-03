@@ -1,14 +1,14 @@
 package edu.wctc.distjava.blueproject.controller;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Patrick Urban
  */
-@ManagedBean(name="donation")
+@Named(value="donation")
 @RequestScoped
 public class DonationBean implements Serializable {
 

@@ -1,7 +1,7 @@
 package edu.wctc.distjava.blueproject.controller;
 
-import edu.wctc.distjava.blueproject.model.Employee;
-import edu.wctc.distjava.blueproject.model.EmployeeEAO;
+import ExamplesNotForUse.Employee;
+import ExamplesNotForUse.EmployeeEAO;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;

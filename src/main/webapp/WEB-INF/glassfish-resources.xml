@@ -8,7 +8,7 @@
          However, note that "java:app/" is mandatory. Make sure that the
          jndi-name is used in your "META-INF/persistence.xml" file.
     -->
-  <jdbc-resource enabled="true" jndi-name="java:app/jdbc/jsfshowcase" 
+  <jdbc-resource enabled="true" jndi-name="java:app/jdbc/auction" 
                  object-type="user" pool-name="java:app/auction_pool">
         <description>The JNDI resource name for the auction connection pool</description>
   </jdbc-resource>
@@ -39,7 +39,7 @@
                         statement-leak-reclaim="false" statement-leak-timeout-in-seconds="0" 
                         statement-timeout-in-seconds="-1" steady-pool-size="8" 
                         validate-atmost-once-period-in-seconds="0" wrap-jdbc-objects="false">
-    <property name="URL" value="jdbc:mysql://localhost:3306/jsfshowcase?zeroDateTimeBehavior=convertToNull"/>
+    <property name="URL" value="jdbc:mysql://localhost:3306/auction?zeroDateTimeBehavior=convertToNull"/>
     <property name="User" value="root"/>
     <property name="Password" value="admin"/>
   </jdbc-connection-pool>
