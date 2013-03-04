@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -19,11 +20,13 @@ public class SearchOptionsBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
+    @Inject
+    private AuctionsEAO eao;
+    
     private String auctionChoice;
     private String searchPhrase = "Smith";
     private final String DEFAULT_RADIO = "all";
     private List<Auctions> auctions = new ArrayList<Auctions>();
-    private AuctionsEAO eao = new AuctionsEAO();
 
     /**
      * Creates a new instance of SearchOptionsBean
@@ -32,7 +35,6 @@ public class SearchOptionsBean implements Serializable {
     }
 
     public final List<Auctions> returnAllAuctionItems() {
-        
         
         System.out.println(this.getAuctionChoice());
         System.out.println(this.getSearchPhrase());
