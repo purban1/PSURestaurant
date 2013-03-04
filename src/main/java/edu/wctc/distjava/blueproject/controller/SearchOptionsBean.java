@@ -1,6 +1,5 @@
 package edu.wctc.distjava.blueproject.controller;
 
-//import edu.wctc.distjava.blueproject.model.AuctionItem;
 import edu.wctc.distjava.blueproject.model.Auctions;
 import edu.wctc.distjava.blueproject.model.AuctionsEAO;
 //import edu.wctc.distjava.blueproject.model.BidItems;
