@@ -10,9 +10,6 @@
 
         <ui:composition >
 
-                <!--<p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>-->
-            
-            
             <p:accordionPanel activeIndex="" style="font-size: 10pt">
                 <p:tab title="Auction Items" >
                     <h:form>
@@ -20,9 +17,9 @@
                                           value="#{search.auctionChoice}" 
                                           layout="pageDirection">
                             <f:selectItem itemLabel="All Auctions" itemValue="All" />
-                            <f:selectItem itemLabel="Dining" itemValue="0" />
-                            <f:selectItem itemLabel="Electronics" itemValue="50" />
-                            <f:selectItem itemLabel="Retail" itemValue="100" />
+                            <f:selectItem itemLabel="Between $0 and $50" itemValue="0" />
+                            <f:selectItem itemLabel="Between $50 and $100" itemValue="50" />
+                            <f:selectItem itemLabel="Over $100" itemValue="100" />
                         </p:selectOneRadio>
                         <br />
                         <h:commandButton value="Display Items" action="results">

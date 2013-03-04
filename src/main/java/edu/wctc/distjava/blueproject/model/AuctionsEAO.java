@@ -5,6 +5,7 @@ import javax.ejb.Stateless;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -27,7 +28,8 @@ public class AuctionsEAO {
 //        
 //        Items items = new Items();
         
-        TypedQuery<Auctions> query = getEntityManager().createNamedQuery("Auctions.findAll", Auctions.class);
+//        TypedQuery<Auctions> query = getEntityManager().createNamedQuery( "Auctions.findAll", Auctions.class);
+        Query query = getEntityManager().createNamedQuery("Auctions.findAll");
         List<Auctions> auctions = query.getResultList();
         
 //        System.out.println(auction.toString());
