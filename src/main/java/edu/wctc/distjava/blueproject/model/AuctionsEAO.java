@@ -27,8 +27,7 @@ public class AuctionsEAO {
 //        
 //        Items items = new Items();
         
-        TypedQuery<Auctions> query = 
-                getEntityManager().createNamedQuery("Auctions.findAll", Auctions.class);
+        TypedQuery<Auctions> query = getEntityManager().createNamedQuery("Auctions.findAll", Auctions.class);
         List<Auctions> auctions = query.getResultList();
         
 //        System.out.println(auction.toString());

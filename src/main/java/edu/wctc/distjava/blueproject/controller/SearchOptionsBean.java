@@ -29,8 +29,21 @@ public class SearchOptionsBean implements Serializable {
     }
 
     public final List<Auctions> returnAllAuctionItems() {
+        List<Auctions> auctions = new ArrayList<Auctions>();
+        
         AuctionsEAO eao = new AuctionsEAO();
-        List<Auctions> auctions = eao.getAllAuctions();
+        if (this.getAuctionChoice().equals("all")){
+            auctions = eao.getAllAuctions();
+        } 
+//        else if (this.getAuctionChoice().equals("0")) {
+//            
+//        }
+//        } else if (this.getAuctionChoice().equals("50")) {
+//            
+//        }
+//        } else if (this.getAuctionChoice().equals("100")) {
+//            
+//        }
 //        List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
 //
 //        if (auctionChoice.equals(DEFAULT_RADIO) || auctionChoice == null) {
@@ -61,9 +74,9 @@ public class SearchOptionsBean implements Serializable {
     /**
      * @param auctionChoice the auctionChoice to set
      */
-    public final void setAuctionChoice(String auctionChoice) {
-        if (!(auctionChoice == null)) {
-            this.auctionChoice = auctionChoice.toLowerCase();
+    public final void setAuctionChoice(String choice) {
+        if (!(choice == null)) {
+            this.auctionChoice = choice.toLowerCase(); 
         } else {
             this.auctionChoice = DEFAULT_RADIO;
         }
