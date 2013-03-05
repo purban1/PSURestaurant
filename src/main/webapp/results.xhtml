@@ -64,8 +64,13 @@
                         </f:facet>
                         <h:outputText style="text-align: right" value="#{auctionItems.auctionEndDate}" />
                     </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Bid" />
+                        </f:facet>
+                    </p:column>
                     <f:facet name="footer">
-                        In total there are #{fn:length(search.returnItemsForPage())} auction items.
+                        In total there are #{search.auctions.size()} auction items.
                     </f:facet>
 
                 </p:dataTable>

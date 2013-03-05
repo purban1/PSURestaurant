@@ -6,7 +6,7 @@ import edu.wctc.distjava.blueproject.model.AuctionsEAO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,7 +14,7 @@ import javax.inject.Named;
  *
  * @author Patrick Urban
  */
-@Named(value = "search")
+@Named("search")
 @SessionScoped
 public class SearchOptionsBean implements Serializable {
     
@@ -34,11 +34,17 @@ public class SearchOptionsBean implements Serializable {
     public SearchOptionsBean() {
     }
 
-    public final List<Auctions> returnAllAuctionItems() {
+    public List<Auctions> getAuctions() {
+        return auctions;
+    }
+
+    public void setAuctions(List<Auctions> auctions) {
+        this.auctions = auctions;
+    }
+
+    public List<Auctions> returnAllAuctionItems() {
         
-        System.out.println(this.getAuctionChoice());
-        System.out.println(this.getSearchPhrase());
-        if (this.auctionChoice.equals("all")){
+       if (this.auctionChoice.equals("all")){
             auctions = eao.getAllAuctions();
         } 
 //        else if (this.getAuctionChoice().equals("0")) {
@@ -73,14 +79,14 @@ public class SearchOptionsBean implements Serializable {
     /**
      * @return the auctionChoice
      */
-    public final String getAuctionChoice() {
+    public String getAuctionChoice() {
         return auctionChoice;
     }
 
     /**
      * @param auctionChoice the auctionChoice to set
      */
-    public final void setAuctionChoice(String choice) {
+    public void setAuctionChoice(String choice) {
         if (!(choice == null)) {
             this.auctionChoice = choice.toLowerCase();
         } else {
@@ -92,14 +98,14 @@ public class SearchOptionsBean implements Serializable {
     /**
      * @return the searchPhrase
      */
-    public final String getSearchPhrase() {
+    public String getSearchPhrase() {
         return searchPhrase;
     }
 
     /**
      * @param searchPhrase the searchPhrase to set
      */
-    public final void setSearchPhrase(String searchPhrase) {
+    public void setSearchPhrase(String searchPhrase) {
         this.searchPhrase = searchPhrase;
         System.out.println(searchPhrase.toLowerCase());
     }

@@ -1,5 +1,7 @@
 package edu.wctc.distjava.blueproject.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Named;
@@ -24,7 +26,7 @@ public class AuctionsEAO {
     }
     
     public List<Auctions> getAllAuctions() {
-//        Auctions auction = new Auctions();
+//        List<Auctions> auctions = new ArrayList<Auctions>();
 //        
 //        Items items = new Items();
         
