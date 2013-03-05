@@ -14,9 +14,9 @@ import javax.inject.Named;
  *
  * @author Patrick Urban
  */
-@Named("search")
+@Named("auction")
 @SessionScoped
-public class SearchOptionsBean implements Serializable {
+public class AuctionBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
@@ -24,14 +24,15 @@ public class SearchOptionsBean implements Serializable {
     private AuctionsEAO eao;
     
     private String auctionChoice;
-    private String searchPhrase = "Smith";
+    private String searchPhrase = "";
+    private Auctions selectedAuction;
     private final String DEFAULT_RADIO = "all";
     private List<Auctions> auctions = new ArrayList<Auctions>();
 
     /**
      * Creates a new instance of SearchOptionsBean
      */
-    public SearchOptionsBean() {
+    public AuctionBean() {
     }
 
     public List<Auctions> getAuctions() {
@@ -92,7 +93,6 @@ public class SearchOptionsBean implements Serializable {
         } else {
             this.auctionChoice = DEFAULT_RADIO;
         }
-        this.setSearchPhrase("Jones");
     }
 
     /**
@@ -108,6 +108,21 @@ public class SearchOptionsBean implements Serializable {
     public void setSearchPhrase(String searchPhrase) {
         this.searchPhrase = searchPhrase;
         System.out.println(searchPhrase.toLowerCase());
+    }
+
+    /**
+     * @return the selectedAuction
+     */
+    public Auctions getSelectedAuction() {
+        return selectedAuction;
+        
+    }
+
+    /**
+     * @param selectedAuction the selectedAuction to set
+     */
+    public void setSelectedAuction(Auctions selectedAuction) {
+        this.selectedAuction = selectedAuction;
     }
     
     

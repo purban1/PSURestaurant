@@ -14,66 +14,103 @@
         <ui:composition template="./primetemplate.xhtml">
 
             <ui:define name="title">Search Results</ui:define>
-            
+
             <ui:define name="content">
-                <!--
-                <p>This area would be for active Dining Auctions or could be for 
-                    Dining Auctions ending soon.</p>
-                -->
+
 
                 <h:outputText id="searchTitle" style="font-weight: bold; 
                               font-size: 14pt" value="All AUCTIONS"  />
+                <p><h:outputText id="explanation" style="font-size: 12pt" 
+                                 value="Select an auction from the table below and 
+                                 click the bid button to make a bid."  /></p>
                 <br />
-                <p:dataTable paginator="true" rows="7" id="auctionItems" paginatorPosition="bottom" 
-                             style="font-size: 10pt; width:95%!important" 
-                             var="auctionItems" value="#{search.returnAllAuctionItems()}">
-                    <f:facet name="header">
-                        Current Auctions
-                    </f:facet>
-                    <p:column>
+                <h:form id="form">
+                    <p:dataTable paginator="true" rows="7" id="auctionItems" paginatorPosition="bottom" 
+                                 style="font-size: 10pt; width:95%!important" 
+                                 var="auctionItems" value="#{auction.returnAllAuctionItems()}"
+                                 rowKey="#{auctionItems.auctionId}" 
+                                 selection="#{auction.selectedAuction}" 
+                                 selectionMode="single">
                         <f:facet name="header">
-                            <h:outputText value="Auction Number" />
+                            Current Active Auctions: #{auction.auctions.size()}
                         </f:facet>
-                        <h:outputText style="text-align: center" value="#{auctionItems.auctionId}" />
-                    </p:column>
-                    <!-- 
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Item" />
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Auction Number" />
+                            </f:facet>
+                            <h:outputText style="text-align: center" value="#{auctionItems.auctionId}" />
+                        </p:column>
+                        <p:column width="350">
+                            <f:facet name="header">
+                                <h:outputText value="Description" />
+                            </f:facet>
+                            <h:outputText value="#{auctionItems.itemId.description}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Price" />
+                            </f:facet> 
+                            <h:outputText value="#{auctionItems.itemId.currentBid}" >
+                                <f:convertNumber currencySymbol="$" type="currency" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="End Date" />
+                            </f:facet>
+                            <h:outputText value="#{auctionItems.auctionEndDate}" />
+                        </p:column>
+                        <!--
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Bid" />
+                            </f:facet>
+                            <h:form><h:commandButton value="Bid on Item" action="bidselection" >
+                                    </h:commandButton>
+                            </h:form>
+                        </p:column>
+                        -->
+                        <f:facet name="footer">
+                            <p:commandButton id="viewAuction" value="Bid on Item" 
+                                             update=":form:display"
+                                             oncomplete="auctionDialog.show()" />
                         </f:facet>
-                        <h:outputText value="#{auctionItems.itemId.description}" />
-                    </p:column>
-                    -->
-                    <p:column width="350">
-                        <f:facet name="header">
-                            <h:outputText value="Description" />
-                        </f:facet>
-                        <h:outputText value="#{auctionItems.itemId.description}" />
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Price" />
-                        </f:facet> 
-                        <h:outputText value="#{auctionItems.itemId.currentBid}" >
-                            <f:convertNumber currencySymbol="$" type="currency" />
-                        </h:outputText>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="End Date" />
-                        </f:facet>
-                        <h:outputText style="text-align: right" value="#{auctionItems.auctionEndDate}" />
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Bid" />
-                        </f:facet>
-                    </p:column>
-                    <f:facet name="footer">
-                        In total there are #{search.auctions.size()} auction items.
-                    </f:facet>
 
-                </p:dataTable>
+                    </p:dataTable>
+
+                    <p:dialog id="dialog" header="Auction Item Details" widgetVar="auctionDialog" resizable="false"  
+                              width="700" showEffect="fade" hideEffect="fold">  
+
+                        <h:panelGrid id="display" columns="2" cellpadding="4">  
+
+                            <f:facet name="header">
+                            </f:facet>
+
+                            <h:outputText value="Auction Number:" />  
+                            <h:outputText value="#{auction.selectedAuction.auctionId}" />  
+
+                            <h:outputText value="Description:" />  
+                            <h:outputText value="#{auction.selectedAuction.itemId.description}" />  
+
+                            <h:outputText value="Current Bid:" />  
+                            <h:outputText value="#{auction.selectedAuction.itemId.currentBid}" >
+                                <f:convertNumber currencySymbol="$" type="currency" />
+                            </h:outputText> 
+
+                            <h:outputText value="Auction Start Date:" />  
+                            <h:outputText value="#{auction.selectedAuction.itemId.dateDonated}" />  
+                            
+                            <!-- WHEN IMAGES ADDED TO DATABASE IMPLEMENT THIS
+                            <p:imageSwitch effect="shuffle">
+                            <ui:repeat value="#{auction.images}" var="image">
+                            <p:graphicImage value="/images/#{image}" />
+                            </ui:repeat>
+                            </p:imageSwitch>
+                            -->
+                        </h:panelGrid>  
+                    </p:dialog>
+
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>

@@ -9,14 +9,14 @@
     </h:head>
     <h:body>
         
-        <ui:define name="title">Auction Page</ui:define>
+        <ui:define name="title">bitAuction Home Page</ui:define>
         
         <ui:composition template="./primetemplate.xhtml">
 
             <ui:define name="content">
                 <h2>Welcome to the #{club.auctionSite} auction site.</h2>
                 <p><h:graphicImage style="float: right" library="images" name="auction_gavel_animated.gif" /></p>
-                <h:outputText escape="false" style="font-size: 12pt" value="#{club.auctionSite} #{club.clubPurpose}" />
+                <h:outputText escape="false" style="font-size: 12pt" value="#{club.auctionSite}#{club.clubPurpose}" />
             </ui:define>
             
 
