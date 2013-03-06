@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wctc.distjava.blueproject.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
@@ -27,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author production
+ * @author Patrick Urban
  */
 @Entity
 @Table(name = "items")
@@ -36,9 +31,13 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Items.findAll", query = "SELECT i FROM Items i"),
     @NamedQuery(name = "Items.findByItemId", query = "SELECT i FROM Items i WHERE i.itemId = :itemId"),
     @NamedQuery(name = "Items.findByDescription", query = "SELECT i FROM Items i WHERE i.description = :description"),
-    @NamedQuery(name = "Items.findByCurrentBid", query = "SELECT i FROM Items i WHERE i.currentBid = :currentBid"),
     @NamedQuery(name = "Items.findByDateDonated", query = "SELECT i FROM Items i WHERE i.dateDonated = :dateDonated"),
-    @NamedQuery(name = "Items.findByMemberId", query = "SELECT i FROM Items i WHERE i.memberId = :memberId")})
+    @NamedQuery(name = "Items.findByMemberId", query = "SELECT i FROM Items i WHERE i.memberId = :memberId"),
+    @NamedQuery(name = "Items.findByPicture1", query = "SELECT i FROM Items i WHERE i.picture1 = :picture1"),
+    @NamedQuery(name = "Items.findByPicture2", query = "SELECT i FROM Items i WHERE i.picture2 = :picture2"),
+    @NamedQuery(name = "Items.findByPicture3", query = "SELECT i FROM Items i WHERE i.picture3 = :picture3"),
+    @NamedQuery(name = "Items.findByPicture4", query = "SELECT i FROM Items i WHERE i.picture4 = :picture4"),
+    @NamedQuery(name = "Items.findByPicture5", query = "SELECT i FROM Items i WHERE i.picture5 = :picture5")})
 public class Items implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,14 +48,26 @@ public class Items implements Serializable {
     @Size(max = 800)
     @Column(name = "DESCRIPTION")
     private String description;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "CURRENT_BID")
-    private BigDecimal currentBid;
     @Column(name = "DATE_DONATED")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateDonated;
     @Column(name = "MEMBER_ID")
     private BigInteger memberId;
+    @Size(max = 45)
+    @Column(name = "PICTURE_1")
+    private String picture1;
+    @Size(max = 45)
+    @Column(name = "PICTURE_2")
+    private String picture2;
+    @Size(max = 45)
+    @Column(name = "PICTURE_3")
+    private String picture3;
+    @Size(max = 45)
+    @Column(name = "PICTURE_4")
+    private String picture4;
+    @Size(max = 45)
+    @Column(name = "PICTURE_5")
+    private String picture5;
     @OneToMany(mappedBy = "itemId")
     private Collection<Auctions> auctionsCollection;
 
@@ -83,14 +94,6 @@ public class Items implements Serializable {
         this.description = description;
     }
 
-    public BigDecimal getCurrentBid() {
-        return currentBid;
-    }
-
-    public void setCurrentBid(BigDecimal currentBid) {
-        this.currentBid = currentBid;
-    }
-
     public Date getDateDonated() {
         return dateDonated;
     }
@@ -105,6 +108,46 @@ public class Items implements Serializable {
 
     public void setMemberId(BigInteger memberId) {
         this.memberId = memberId;
+    }
+
+    public String getPicture1() {
+        return picture1;
+    }
+
+    public void setPicture1(String picture1) {
+        this.picture1 = picture1;
+    }
+
+    public String getPicture2() {
+        return picture2;
+    }
+
+    public void setPicture2(String picture2) {
+        this.picture2 = picture2;
+    }
+
+    public String getPicture3() {
+        return picture3;
+    }
+
+    public void setPicture3(String picture3) {
+        this.picture3 = picture3;
+    }
+
+    public String getPicture4() {
+        return picture4;
+    }
+
+    public void setPicture4(String picture4) {
+        this.picture4 = picture4;
+    }
+
+    public String getPicture5() {
+        return picture5;
+    }
+
+    public void setPicture5(String picture5) {
+        this.picture5 = picture5;
     }
 
     @XmlTransient
@@ -136,17 +179,9 @@ public class Items implements Serializable {
         return true;
     }
 
-//    @Override
-//    public String toString() {
-//        return "controller.Items[ itemId=" + itemId + " ]";
-//    }
-
     @Override
     public String toString() {
-        return "Items{" + "itemId=" + itemId + ", description=" + description + 
-                ", currentBid=" + currentBid + ", dateDonated=" + dateDonated + 
-                ", memberId=" + memberId + ", auctionsCollection=" + auctionsCollection + '}';
+        return "model.Items[ itemId=" + itemId + " ]";
     }
-    
     
 }

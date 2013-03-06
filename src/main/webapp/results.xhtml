@@ -27,8 +27,8 @@
                 <h:form id="form">
                     <p:dataTable paginator="true" rows="7" id="auctionItems" paginatorPosition="bottom" 
                                  style="font-size: 10pt; width:95%!important" 
-                                 var="auctionItems" value="#{auction.returnAllAuctionItems()}"
-                                 rowKey="#{auctionItems.auctionId}" 
+                                 var="auctionList" value="#{auction.returnAllAuctionItems()}"
+                                 rowKey="#{auctionList.auctionId}" 
                                  selection="#{auction.selectedAuction}" 
                                  selectionMode="single">
                         <f:facet name="header">
@@ -38,19 +38,19 @@
                             <f:facet name="header">
                                 <h:outputText value="Auction Number" />
                             </f:facet>
-                            <h:outputText style="text-align: center" value="#{auctionItems.auctionId}" />
+                            <h:outputText style="text-align: center" value="#{auctionList.auctionId}" />
                         </p:column>
                         <p:column width="350">
                             <f:facet name="header">
                                 <h:outputText value="Description" />
                             </f:facet>
-                            <h:outputText value="#{auctionItems.itemId.description}" />
+                            <h:outputText value="#{auctionList.itemId.description}" />
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Price" />
                             </f:facet> 
-                            <h:outputText value="#{auctionItems.itemId.currentBid}" >
+                            <h:outputText value="#{auctionList.currentBid}" >
                                 <f:convertNumber currencySymbol="$" type="currency" />
                             </h:outputText>
                         </p:column>
@@ -58,7 +58,9 @@
                             <f:facet name="header">
                                 <h:outputText value="End Date" />
                             </f:facet>
-                            <h:outputText value="#{auctionItems.auctionEndDate}" />
+                            <h:outputText value="#{auctionList.auctionEndDate}" >
+                                <f:convertDateTime pattern="M-d-yyyy" />
+                            </h:outputText>
                         </p:column>
                         <!--
                         <p:column>
@@ -79,7 +81,7 @@
                     </p:dataTable>
 
                     <p:dialog id="dialog" header="Auction Item Details" widgetVar="auctionDialog" resizable="false"  
-                              width="700" showEffect="fade" hideEffect="fold">  
+                              width="700" height="600" showEffect="fade" hideEffect="fold">  
 
                         <h:panelGrid id="display" columns="2" cellpadding="4">  
 
@@ -93,20 +95,22 @@
                             <h:outputText value="#{auction.selectedAuction.itemId.description}" />  
 
                             <h:outputText value="Current Bid:" />  
-                            <h:outputText value="#{auction.selectedAuction.itemId.currentBid}" >
+                            <h:outputText value="#{auction.selectedAuction.currentBid}" >
                                 <f:convertNumber currencySymbol="$" type="currency" />
                             </h:outputText> 
 
                             <h:outputText value="Auction Start Date:" />  
-                            <h:outputText value="#{auction.selectedAuction.itemId.dateDonated}" />  
+                            <h:outputText value="#{auction.selectedAuction.auctionStartDate}" >
+                                <f:convertDateTime pattern="M-d-yyyy" />
+                            </h:outputText> 
                             
-                            <!-- WHEN IMAGES ADDED TO DATABASE IMPLEMENT THIS
+                            <!-- WHEN IMAGES ADDED TO DATABASE IMPLEMENT THIS -->
                             <p:imageSwitch effect="shuffle">
-                            <ui:repeat value="#{auction.images}" var="image">
-                            <p:graphicImage value="/images/#{image}" />
-                            </ui:repeat>
+                                <ui:repeat value="#{auction.pictureList}" var="image">
+                                    <p:graphicImage name="#{image}" library="#{auction.imageDirectory}" />
+                                </ui:repeat>
                             </p:imageSwitch>
-                            -->
+
                         </h:panelGrid>  
                     </p:dialog>
 

@@ -17,35 +17,25 @@ import javax.persistence.TypedQuery;
 @Named
 @Stateless
 public class AuctionsEAO {
-    
+
     @PersistenceContext(unitName = "blueprojectPU")
     private EntityManager em;
 
-    public AuctionsEAO(){
-        
+    public AuctionsEAO() {
     }
-    
+
     public List<Auctions> getAllAuctions() {
-//        List<Auctions> auctions = new ArrayList<Auctions>();
-//        
-//        Items items = new Items();
-        
-//        TypedQuery<Auctions> query = getEntityManager().createNamedQuery( "Auctions.findAll", Auctions.class);
         Query query = getEntityManager().createNamedQuery("Auctions.findAll");
-        List<Auctions> auctions = query.getResultList();
-        
-//        System.out.println(auction.toString());
-//        System.out.println(items.toString());
-        
-        return auctions;
-        
+        List<Auctions> auctionList = query.getResultList();
+
+        return auctionList;
+
     }
-    
-    
+
     /**
      * Always use this in your code -- never reference the 'em' property because
      * JPA EntityManagers are loaded on demand.
-     *     
+     *
      * @return an on demand object
      */
     public EntityManager getEntityManager() {
@@ -55,6 +45,4 @@ public class AuctionsEAO {
     public void setEm(EntityManager em) {
         this.em = em;
     }
-    
-    
 }

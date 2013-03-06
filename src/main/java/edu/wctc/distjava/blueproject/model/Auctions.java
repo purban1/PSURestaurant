@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author production
+ * @author Patrick Urban
  */
 @Entity
 @Table(name = "auctions")
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Auctions.findByAuctionId", query = "SELECT a FROM Auctions a WHERE a.auctionId = :auctionId"),
     @NamedQuery(name = "Auctions.findByAuctionStartDate", query = "SELECT a FROM Auctions a WHERE a.auctionStartDate = :auctionStartDate"),
     @NamedQuery(name = "Auctions.findByAuctionEndDate", query = "SELECT a FROM Auctions a WHERE a.auctionEndDate = :auctionEndDate"),
-    @NamedQuery(name = "Auctions.findByWinningBid", query = "SELECT a FROM Auctions a WHERE a.winningBid = :winningBid"),
+    @NamedQuery(name = "Auctions.findByCurrentBid", query = "SELECT a FROM Auctions a WHERE a.currentBid = :currentBid"),
     @NamedQuery(name = "Auctions.findByMemberId", query = "SELECT a FROM Auctions a WHERE a.memberId = :memberId")})
 public class Auctions implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -49,10 +49,13 @@ public class Auctions implements Serializable {
     @Column(name = "AUCTION_END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date auctionEndDate;
-    @Column(name = "WINNING_BID")
-    private Long winningBid;
+    @Column(name = "CURRENT_BID")
+    private Integer currentBid;
     @Column(name = "MEMBER_ID")
     private BigInteger memberId;
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID")
+    @ManyToOne
+    private Category categoryId;
     @JoinColumn(name = "ITEM_ID", referencedColumnName = "ITEM_ID")
     @ManyToOne
     private Items itemId;
@@ -88,12 +91,12 @@ public class Auctions implements Serializable {
         this.auctionEndDate = auctionEndDate;
     }
 
-    public Long getWinningBid() {
-        return winningBid;
+    public Integer getCurrentBid() {
+        return currentBid;
     }
 
-    public void setWinningBid(Long winningBid) {
-        this.winningBid = winningBid;
+    public void setCurrentBid(Integer currentBid) {
+        this.currentBid = currentBid;
     }
 
     public BigInteger getMemberId() {
@@ -102,6 +105,14 @@ public class Auctions implements Serializable {
 
     public void setMemberId(BigInteger memberId) {
         this.memberId = memberId;
+    }
+
+    public Category getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Category categoryId) {
+        this.categoryId = categoryId;
     }
 
     public Items getItemId() {
@@ -132,18 +143,9 @@ public class Auctions implements Serializable {
         return true;
     }
 
-//    @Override
-//    public String toString() {
-//        return "controller.Auctions[ auctionId=" + auctionId + " ]";
-//    }
-
     @Override
     public String toString() {
-        return "Auctions{" + "auctionId=" + auctionId + ", auctionStartDate=" 
-                + auctionStartDate + ", auctionEndDate=" + auctionEndDate + 
-                ", winningBid=" + winningBid + ", memberId=" + memberId + 
-                ", itemId=" + itemId + '}';
+        return "model.Auctions[ auctionId=" + auctionId + " ]";
     }
-    
     
 }
