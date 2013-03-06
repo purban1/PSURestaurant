@@ -30,6 +30,17 @@
                         <h:commandButton value="Display Items" action="results">
                         </h:commandButton>
                     </h:form>
+                <p></p>
+                 <h:form style="width: 200px">
+
+                    <p:inputText id="searchText" style="width: 150px; 
+                                 font-size: 12pt; vertical-align: top"
+                                 value="#{search.searchPhrase}"/>
+                    <p><h:commandButton style="vertical-align: top" value="Search"
+                                     action="results">
+                    </h:commandButton></p>
+                </h:form>
+                
                 </p:tab>
 
                 <p:tab title="Donate" >

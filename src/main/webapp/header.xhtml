@@ -9,32 +9,16 @@
     <body>
 
         <ui:composition  >
-            
+
             <h:outputStylesheet name="auction.css" library="css" />
 
-            <p:panelGrid columns="2" styleClass="panelGridBorder">
+            <p:panelGrid columns="1" styleClass="panelGridBorder">
                 <h:form id="homePageLink" >
                     <h:commandLink action="index" >
                         <h:graphicImage library="images" name="logo.gif" /> 
                     </h:commandLink>
                 </h:form>
-                <h:form style="width: 200px">
-
-                    <p:inputText id="searchText" style="width: 150px; 
-                                 font-size: 12pt; vertical-align: top"
-                                 value="#{search.searchPhrase}"/>
-                    <h:commandButton style="vertical-align: top" value="Search"
-                                     action="results">
-                    </h:commandButton>
-
-
-                </h:form>
-
-
             </p:panelGrid>
-
-
-
         </ui:composition>
 
     </body>

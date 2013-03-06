@@ -28,7 +28,7 @@ public class AuctionBean implements Serializable {
 
     private String searchPhrase = "";
     private Auctions selectedAuction;
-    private final String DEFAULT_RADIO = "all";
+    private final String DEFAULT_RADIO = "All";
     private List<Auctions> auctions = new ArrayList<Auctions>();
 
     /**
@@ -47,7 +47,7 @@ public class AuctionBean implements Serializable {
 
     public List<Auctions> returnAuctionItems() {
 
-        if (this.auctionChoice.equals("all")) {
+        if (this.auctionChoice.equals("All")) {
             auctions = eao.getAllAuctions();
         }
 //        else {
@@ -73,7 +73,7 @@ public class AuctionBean implements Serializable {
      */
     public void setAuctionChoice(String choice) {
         if (!(choice == null)) {
-            this.auctionChoice = choice.toLowerCase();
+            this.auctionChoice = choice.trim();
         } else {
             this.auctionChoice = DEFAULT_RADIO;
         }
