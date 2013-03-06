@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Patrick Urban
+ * @author production
  */
 @Entity
 @Table(name = "auctions")
@@ -53,9 +53,6 @@ public class Auctions implements Serializable {
     private Integer currentBid;
     @Column(name = "MEMBER_ID")
     private BigInteger memberId;
-    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID")
-    @ManyToOne
-    private Category categoryId;
     @JoinColumn(name = "ITEM_ID", referencedColumnName = "ITEM_ID")
     @ManyToOne
     private Items itemId;
@@ -105,14 +102,6 @@ public class Auctions implements Serializable {
 
     public void setMemberId(BigInteger memberId) {
         this.memberId = memberId;
-    }
-
-    public Category getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
     }
 
     public Items getItemId() {

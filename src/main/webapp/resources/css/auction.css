@@ -11,4 +11,12 @@ root {
     border-style: hidden !important;
 }
 
+.myLayoutStyleClass .ui-layout-unit-header{
+    background: yellow;
+    border-style: hidden !important;
+}
+
+.myLayoutStyleClass .ui-layout-unit-content{
+   background: red;
+}
 

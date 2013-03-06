@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wctc.distjava.blueproject.model;
 
 import java.io.Serializable;
@@ -10,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -22,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Patrick Urban
+ * @author production
  */
 @Entity
 @Table(name = "items")
@@ -49,7 +55,7 @@ public class Items implements Serializable {
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "DATE_DONATED")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dateDonated;
     @Column(name = "MEMBER_ID")
     private BigInteger memberId;
@@ -70,6 +76,9 @@ public class Items implements Serializable {
     private String picture5;
     @OneToMany(mappedBy = "itemId")
     private Collection<Auctions> auctionsCollection;
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID")
+    @ManyToOne
+    private Category categoryId;
 
     public Items() {
     }
@@ -157,6 +166,14 @@ public class Items implements Serializable {
 
     public void setAuctionsCollection(Collection<Auctions> auctionsCollection) {
         this.auctionsCollection = auctionsCollection;
+    }
+
+    public Category getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Category categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override

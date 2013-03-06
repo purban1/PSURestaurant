@@ -19,7 +19,7 @@
 
 
                 <h:outputText id="searchTitle" style="font-weight: bold; 
-                              font-size: 14pt" value="All AUCTIONS"  />
+                              font-size: 14pt" value="#{auction.auctionChoice} Auctions"  />
                 <p><h:outputText id="explanation" style="font-size: 12pt" 
                                  value="Select an auction from the table below and 
                                  click the bid button to make a bid."  /></p>
@@ -27,7 +27,7 @@
                 <h:form id="form">
                     <p:dataTable paginator="true" rows="7" id="auctionItems" paginatorPosition="bottom" 
                                  style="font-size: 10pt; width:95%!important" 
-                                 var="auctionList" value="#{auction.returnAllAuctionItems()}"
+                                 var="auctionList" value="#{auction.returnAuctionItems()}"
                                  rowKey="#{auctionList.auctionId}" 
                                  selection="#{auction.selectedAuction}" 
                                  selectionMode="single">
@@ -81,7 +81,7 @@
                     </p:dataTable>
 
                     <p:dialog id="dialog" header="Auction Item Details" widgetVar="auctionDialog" resizable="false"  
-                              width="700" height="600" showEffect="fade" hideEffect="fold">  
+                              width="700" height="450" showEffect="fade" hideEffect="fold">  
 
                         <h:panelGrid id="display" columns="2" cellpadding="4">  
 
@@ -101,11 +101,11 @@
 
                             <h:outputText value="Auction Start Date:" />  
                             <h:outputText value="#{auction.selectedAuction.auctionStartDate}" >
-                                <f:convertDateTime pattern="M-d-yyyy" />
+                                <f:convertDateTime dateStyle="full" timeZone="America/Chicago" type="date" />
                             </h:outputText> 
                             
                             <!-- WHEN IMAGES ADDED TO DATABASE IMPLEMENT THIS -->
-                            <p:imageSwitch effect="shuffle">
+                            <p:imageSwitch id="auctionImages" effect="shuffle" >
                                 <ui:repeat value="#{auction.pictureList}" var="image">
                                     <p:graphicImage name="#{image}" library="#{auction.imageDirectory}" />
                                 </ui:repeat>

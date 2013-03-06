@@ -42,7 +42,7 @@ public class Category implements Serializable {
     @Column(name = "CATEGORY")
     private String category;
     @OneToMany(mappedBy = "categoryId")
-    private Collection<Auctions> auctionsCollection;
+    private Collection<Items> itemsCollection;
 
     public Category() {
     }
@@ -68,12 +68,12 @@ public class Category implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Auctions> getAuctionsCollection() {
-        return auctionsCollection;
+    public Collection<Items> getItemsCollection() {
+        return itemsCollection;
     }
 
-    public void setAuctionsCollection(Collection<Auctions> auctionsCollection) {
-        this.auctionsCollection = auctionsCollection;
+    public void setItemsCollection(Collection<Items> itemsCollection) {
+        this.itemsCollection = itemsCollection;
     }
 
     @Override

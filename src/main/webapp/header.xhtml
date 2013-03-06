@@ -5,37 +5,39 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-   
-        <body>
 
-            <ui:composition  >
+    <body>
 
-                <h:outputStylesheet name="auction.css" library="css" />
-                
-                <p:panelGrid columns="3" styleClass="panelGridBorder">
+        <ui:composition  >
+            
+            <h:outputStylesheet name="auction.css" library="css" />
 
-                    <h:graphicImage library="images" name="logo.jpg" /> 
+            
+            
+            <p:panelGrid columns="2" styleClass="panelGridBorder">
+                <h:form id="homePageLink" >
+                    <h:commandLink action="index" >
+                        <h:graphicImage library="images" name="logo.jpg" /> 
+                    </h:commandLink>
+                </h:form>
+                <h:form style="width: 500px">
 
-                    <h:form style="width: 500px">
-
-                        <p:inputText id="searchText" style="width: 350px; 
-                                     font-size: 12pt; vertical-align: top"
-                                     value="#{search.searchPhrase}"/>
-                        <h:commandButton style="vertical-align: top" value="Search"
-                                         action="results">
-                        </h:commandButton>
-
-
-                    </h:form>
-
-                    <h:outputText style="font-size: 12pt" value="Welcome: Guest" />
-
-
-                </p:panelGrid>
+                    <p:inputText id="searchText" style="width: 350px; 
+                                 font-size: 12pt; vertical-align: top"
+                                 value="#{search.searchPhrase}"/>
+                    <h:commandButton style="vertical-align: top" value="Search"
+                                     action="results">
+                    </h:commandButton>
 
 
+                </h:form>
 
-            </ui:composition>
 
-        </body>
+            </p:panelGrid>
+
+
+
+        </ui:composition>
+
+    </body>
 </html>

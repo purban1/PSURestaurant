@@ -9,17 +9,22 @@
     <body>
 
         <ui:composition >
-
+            <p><h:outputText style="font-size: 12pt" value="Welcome: Guest" /></p>
             <p:accordionPanel activeIndex="" style="font-size: 10pt">
-                <p:tab title="Auction Items" >
+                <p:tab title="Members">
+                    <h:outputText value="Login or become a member." />
+                </p:tab>
+            <p:tab title="Auction Items" >
                     <h:form>
                         <p:selectOneRadio id="auctionTypes" 
                                           value="#{auction.auctionChoice}" 
                                           layout="pageDirection">
                             <f:selectItem itemLabel="All Auctions" itemValue="All" />
-                            <f:selectItem itemLabel="Between $0 and $50" itemValue="0" />
-                            <f:selectItem itemLabel="Between $50 and $100" itemValue="50" />
-                            <f:selectItem itemLabel="Over $100" itemValue="100" />
+                            <f:selectItem itemLabel="Electronics" itemValue="1" />
+                            <f:selectItem itemLabel="Gift Cards" itemValue="2" />
+                            <f:selectItem itemLabel="Dining" itemValue="3" />
+                            <f:selectItem itemLabel="Sports" itemValue="4" />
+                            <f:selectItem itemLabel="Retail" itemValue="5" />
                         </p:selectOneRadio>
                         <br />
                         <h:commandButton value="Display Items" action="results">

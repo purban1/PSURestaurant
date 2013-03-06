@@ -4,6 +4,7 @@ import edu.wctc.distjava.blueproject.model.Auctions;
 import edu.wctc.distjava.blueproject.model.AuctionsEAO;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -23,6 +24,8 @@ public class AuctionBean implements Serializable {
     private String noPicture = "no_picture.jpg";
     private String imageDirectory;
     private String auctionChoice;
+    private Date displayDate;
+
     private String searchPhrase = "";
     private Auctions selectedAuction;
     private final String DEFAULT_RADIO = "all";
@@ -42,33 +45,15 @@ public class AuctionBean implements Serializable {
         this.auctions = auctions;
     }
 
-    public List<Auctions> returnAllAuctionItems() {
+    public List<Auctions> returnAuctionItems() {
 
         if (this.auctionChoice.equals("all")) {
             auctions = eao.getAllAuctions();
         }
-//        else if (this.getAuctionChoice().equals("0")) {
-//            
+//        else {
+//            auctions = eao.getAuctionsByCategory(this.getAuctionChoice());
 //        }
-//        } else if (this.getAuctionChoice().equals("50")) {
-//            
-//        }
-//        } else if (this.getAuctionChoice().equals("100")) {
-//            
-//        }
-//        List<AuctionItem> listMatch = new ArrayList<AuctionItem>();
-//
-//        if (auctionChoice.equals(DEFAULT_RADIO) || auctionChoice == null) {
-//            for (AuctionItem b : list) {
-//                listMatch.add(b);
-//            }
-//        } else {
-//            for (AuctionItem b : list) {
-//                if (b.getCategory().toLowerCase().equals(this.getAuctionChoice())) {
-//                    listMatch.add(b);
-//                }
-//            }
-//        }
+        
         return auctions;
     }
 
@@ -155,10 +140,11 @@ public class AuctionBean implements Serializable {
                 setImageDirectory("images/auctions");
             } else {
                 setImageDirectory("images/auctions/" + selectedAuction.getAuctionId());
+                System.out.println(selectedAuction.getAuctionStartDate().toString());
+
             }
 
         }
-
         return pictures;
     }
 
@@ -175,4 +161,5 @@ public class AuctionBean implements Serializable {
     public void setImageDirectory(String imageDirectory) {
         this.imageDirectory = imageDirectory;
     }
+
 }

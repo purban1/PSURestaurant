@@ -31,6 +31,16 @@ public class AuctionsEAO {
         return auctionList;
 
     }
+    
+//    public List<Auctions> getAuctionsByCategory(String cat) {
+//        String theQuery = "SELECT a FROM Auctions a INNER JOIN a.categoryId c WHERE c.categoryID = ?1";
+//        Query query = getEntityManager().createQuery(theQuery);
+//        query.setParameter("1", Integer.parseInt(cat));
+//        List<Auctions> auctionList = query.getResultList();
+//
+//        return auctionList;
+//
+//    }
 
     /**
      * Always use this in your code -- never reference the 'em' property because
